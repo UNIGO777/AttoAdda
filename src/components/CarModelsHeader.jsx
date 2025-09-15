@@ -46,7 +46,7 @@ const CarModelsHeader = ({ viewMode, setViewMode, onAddClick }) => {
           </div>
           <motion.button
           onClick={onAddClick}
-          className="bg-cars text-white px-4 py-2 sm:px-6 sm:py-3 rounded-xl font-medium flex items-center justify-center space-x-2 hover:bg-cars/90 transition-colors shadow-lg text-sm sm:text-base w-1/2 sm:w-auto"
+          className="bg-cars text-white px-4 py-2 sm:px-6 sm:py-3 rounded-xl font-medium flex items-center justify-center space-x-2 hover:bg-cars/90 transition-colors shadow-lg text-sm sm:text-base sm:w-auto"
           whileHover={{ scale: 1.05, y: -2 }}
           whileTap={{ scale: 0.95 }}
         >
