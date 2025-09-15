@@ -1,6 +1,5 @@
 import { motion } from 'framer-motion';
 import { useState } from 'react';
-import Sidebar from '../components/Sidebar';
 import SparePartsHeader from '../components/SparePartsHeader';
 import SparePartsStats from '../components/SparePartsStats';
 import SparePartsSearchFilter from '../components/SparePartsSearchFilter';
@@ -164,31 +163,27 @@ const SpareParts = () => {
   };
 
   return (
-    <div className="flex h-screen bg-gray-50">
-      <Sidebar />
-      
-      <motion.div 
-        className="flex-1 overflow-auto p-6"
-        variants={containerVariants}
-        initial="hidden"
-        animate="visible"
-      >
-        <SparePartsHeader onAddClick={() => setShowAddModal(true)} />
-          
-        <SparePartsStats spareParts={spareParts} getStockStatus={getStockStatus} />
-          
-        <SparePartsSearchFilter 
-          searchTerm={searchTerm}
-          setSearchTerm={setSearchTerm}
-          filterCategory={filterCategory}
-          setFilterCategory={setFilterCategory}
-          filterStock={filterStock}
-          setFilterStock={setFilterStock}
-        />
-          
-        <SparePartsGrid filteredParts={filteredParts} getStockStatus={getStockStatus} />
-      </motion.div>
-    </div>
+    <motion.div 
+      className="p-4 sm:p-6 space-y-4 sm:space-y-6"
+      variants={containerVariants}
+      initial="hidden"
+      animate="visible"
+    >
+      <SparePartsHeader onAddClick={() => setShowAddModal(true)} />
+        
+      <SparePartsStats spareParts={spareParts} getStockStatus={getStockStatus} />
+        
+      <SparePartsSearchFilter 
+        searchTerm={searchTerm}
+        setSearchTerm={setSearchTerm}
+        filterCategory={filterCategory}
+        setFilterCategory={setFilterCategory}
+        filterStock={filterStock}
+        setFilterStock={setFilterStock}
+      />
+        
+      <SparePartsGrid filteredParts={filteredParts} getStockStatus={getStockStatus} />
+    </motion.div>
   );
 };
 

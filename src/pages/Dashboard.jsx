@@ -1,5 +1,4 @@
 import { motion } from 'framer-motion';
-import Sidebar from '../components/Sidebar';
 import StatsCards from '../components/StatsCards';
 import RecentActivities from '../components/RecentActivities';
 import ChartSection from '../components/ChartSection';
@@ -83,36 +82,30 @@ const Dashboard = () => {
   };
 
   return (
-    <div className="flex h-screen bg-gray-50">
-      <Sidebar />
-      
-      <motion.div 
-        className="flex-1 overflow-auto"
-        variants={containerVariants}
-        initial="hidden"
-        animate="visible"
-      >
-        {/* Header */}
-        <DashboardHeader />
+    <motion.div 
+      className="p-4 sm:p-6"
+      variants={containerVariants}
+      initial="hidden"
+      animate="visible"
+    >
+      {/* Header */}
+      <DashboardHeader />
 
-        {/* Main Content */}
-        <main className="p-6 space-y-6">
-          {/* Stats Grid */}
-          <StatsCards stats={stats} />
+      {/* Main Content */}
+      <main className="space-y-4 sm:space-y-6">
+        {/* Stats Grid */}
+        <StatsCards stats={stats} />
 
-          {/* Charts and Activities */}
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-            {/* Chart Section */}
-            <ChartSection />
+        {/* Charts and Activities */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-6">
+          {/* Chart Section */}
+          <ChartSection />
 
-            {/* Recent Activities */}
-            <RecentActivities activities={recentActivities} />
-          </div>
-
-
-        </main>
-      </motion.div>
-    </div>
+          {/* Recent Activities */}
+          <RecentActivities activities={recentActivities} />
+        </div>
+      </main>
+    </motion.div>
   );
 };
 

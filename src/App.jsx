@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import Layout from './components/Layout';
 import Login from './pages/Login';
 import Dashboard from './pages/Dashboard';
 import Cars from './pages/Cars';
@@ -16,13 +17,13 @@ function App() {
         <Routes>
           <Route path="/" element={<Navigate to="/login" replace />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/cars" element={<Cars />} />
-          <Route path="/car-models" element={<CarModels />} />
-          <Route path="/customers" element={<Customers />} />
-          <Route path="/garage" element={<Garage />} />
-          <Route path="/spare-parts" element={<SpareParts />} />
-          <Route path="/other-services" element={<OtherServices />} />
+          <Route path="/dashboard" element={<Layout><Dashboard /></Layout>} />
+          <Route path="/cars" element={<Layout><Cars /></Layout>} />
+          <Route path="/car-models" element={<Layout><CarModels /></Layout>} />
+          <Route path="/customers" element={<Layout><Customers /></Layout>} />
+          <Route path="/garage" element={<Layout><Garage /></Layout>} />
+          <Route path="/spare-parts" element={<Layout><SpareParts /></Layout>} />
+          <Route path="/other-services" element={<Layout><OtherServices /></Layout>} />
         </Routes>
       </div>
     </Router>

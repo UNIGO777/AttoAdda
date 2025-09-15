@@ -1,7 +1,6 @@
 import { motion } from 'framer-motion';
 import { useState } from 'react';
 import { UserIcon } from '@heroicons/react/24/outline';
-import Sidebar from '../components/Sidebar';
 import CustomersHeader from '../components/CustomersHeader';
 import CustomersStats from '../components/CustomersStats';
 import CustomersSearchFilter from '../components/CustomersSearchFilter';
@@ -113,47 +112,43 @@ const Customers = () => {
   };
 
   return (
-    <div className="flex h-screen bg-gray-50">
-      <Sidebar />
+    <motion.div 
+      className="p-4 sm:p-6 space-y-4 sm:space-y-6"
+      variants={containerVariants}
+      initial="hidden"
+      animate="visible"
+    >
+      <CustomersHeader onAddClick={() => setShowAddModal(true)} />
       
-      <motion.div 
-        className="flex-1 overflow-auto p-6"
-        variants={containerVariants}
-        initial="hidden"
-        animate="visible"
-      >
-        <CustomersHeader onAddClick={() => setShowAddModal(true)} />
-        
-        <CustomersStats customers={customers} />
-        
-        <CustomersSearchFilter 
-          searchTerm={searchTerm}
-          setSearchTerm={setSearchTerm}
-          filterType={filterType}
-          setFilterType={setFilterType}
-        />
+      <CustomersStats customers={customers} />
+      
+      <CustomersSearchFilter 
+        searchTerm={searchTerm}
+        setSearchTerm={setSearchTerm}
+        filterType={filterType}
+        setFilterType={setFilterType}
+      />
 
-        <CustomersTable 
-          filteredCustomers={filteredCustomers}
-          getTypeColor={getTypeColor}
-          getStatusColor={getStatusColor}
-        />
+      <CustomersTable 
+        filteredCustomers={filteredCustomers}
+        getTypeColor={getTypeColor}
+        getStatusColor={getStatusColor}
+      />
 
-        {/* Empty State */}
-        {filteredCustomers.length === 0 && (
-          <motion.div 
-            className="text-center py-12"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.3 }}
-          >
-            <UserIcon className="w-16 h-16 text-gray-300 mx-auto mb-4" />
-            <h3 className="text-lg font-medium text-gray-600 mb-2">No customers found</h3>
-            <p className="text-gray-500">Try adjusting your search or filter criteria</p>
-          </motion.div>
-        )}
-      </motion.div>
-    </div>
+      {/* Empty State */}
+      {filteredCustomers.length === 0 && (
+        <motion.div 
+          className="text-center py-12"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.3 }}
+        >
+          <UserIcon className="w-16 h-16 text-gray-300 mx-auto mb-4" />
+          <h3 className="text-lg font-medium text-gray-600 mb-2">No customers found</h3>
+          <p className="text-gray-500">Try adjusting your search or filter criteria</p>
+        </motion.div>
+      )}
+    </motion.div>
   );
 };
 

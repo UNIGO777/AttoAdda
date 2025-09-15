@@ -15,22 +15,22 @@ const CarsHeader = ({ onAddClick }) => {
   };
 
   return (
-    <motion.div className="mb-8" variants={itemVariants}>
-      <div className="flex items-center justify-between">
+    <motion.div className="mb-6 sm:mb-8" variants={itemVariants}>
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between space-y-4 sm:space-y-0">
         <div>
-          <h1 className="text-3xl font-bold text-gray-800 flex items-center">
-            <TruckIcon className="w-8 h-8 text-cars mr-3" />
+          <h1 className="text-2xl sm:text-3xl font-bold text-gray-800 flex items-center">
+            <TruckIcon className="w-6 h-6 sm:w-8 sm:h-8 text-cars mr-2 sm:mr-3" />
             Cars Management
           </h1>
-          <p className="text-gray-600 mt-2">Manage your car inventory and listings</p>
+          <p className="text-gray-600 mt-1 sm:mt-2 text-sm sm:text-base">Manage your car inventory and listings</p>
         </div>
         <motion.button
           onClick={onAddClick}
-          className="bg-cars text-white px-6 py-3 rounded-xl font-medium flex items-center space-x-2 hover:bg-cars/90 transition-colors shadow-lg"
+          className="bg-cars text-white px-4 py-2 sm:px-6 sm:py-3 rounded-xl font-medium flex items-center justify-center space-x-2 hover:bg-cars/90 transition-colors shadow-lg text-sm sm:text-base w-full sm:w-auto"
           whileHover={{ scale: 1.05, y: -2 }}
           whileTap={{ scale: 0.95 }}
         >
-          <PlusIcon className="w-5 h-5" />
+          <PlusIcon className="w-4 h-4 sm:w-5 sm:h-5" />
           <span>Add New Car</span>
         </motion.button>
       </div>

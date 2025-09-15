@@ -1,6 +1,5 @@
 import { motion } from 'framer-motion';
 import { useState } from 'react';
-import Sidebar from '../components/Sidebar';
 import CarsHeader from '../components/CarsHeader';
 import CarsStats from '../components/CarsStats';
 import CarsSearchFilter from '../components/CarsSearchFilter';
@@ -97,26 +96,22 @@ const Cars = () => {
   };
 
   return (
-    <div className="flex h-screen bg-gray-50">
-      <Sidebar />
-      
-      <motion.div 
-        className="flex-1 overflow-auto p-6"
-        variants={containerVariants}
-        initial="hidden"
-        animate="visible"
-      >
-        <CarsHeader onAddClick={() => setShowAddModal(true)} />
-        <CarsStats cars={cars} />
-        <CarsSearchFilter 
-          searchTerm={searchTerm}
-          setSearchTerm={setSearchTerm}
-          filterStatus={filterStatus}
-          setFilterStatus={setFilterStatus}
-        />
-        <CarsGrid cars={filteredCars} />
-      </motion.div>
-    </div>
+    <motion.div 
+      className="p-4 sm:p-6 space-y-4 sm:space-y-6"
+      variants={containerVariants}
+      initial="hidden"
+      animate="visible"
+    >
+      <CarsHeader onAddClick={() => setShowAddModal(true)} />
+      <CarsStats cars={cars} />
+      <CarsSearchFilter 
+        searchTerm={searchTerm}
+        setSearchTerm={setSearchTerm}
+        filterStatus={filterStatus}
+        setFilterStatus={setFilterStatus}
+      />
+      <CarsGrid cars={filteredCars} />
+    </motion.div>
   );
 };
 

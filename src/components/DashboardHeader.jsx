@@ -15,13 +15,13 @@ const DashboardHeader = ({ user = { name: 'John Doe', role: 'Administrator', ini
 
   return (
     <motion.header 
-      className="bg-white shadow-sm border-b border-gray-200 p-6"
+      className="bg-white mb-5 shadow-sm border-b border-gray-200 p-6"
       variants={itemVariants}
     >
       <div className="flex items-center justify-between">
-        <div>
+        <div >
           <h1 className="text-2xl font-bold text-gray-800">Dashboard</h1>
-          <p className="text-gray-600 mt-1">Welcome back! Here's what's happening today.</p>
+          <p className="text-gray-600 mt-1 w-[50vw]">Welcome back! Here's what's happening today.</p>
         </div>
         <motion.div 
           className="flex items-center space-x-4"

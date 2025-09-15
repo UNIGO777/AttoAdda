@@ -1,6 +1,5 @@
 import { motion } from 'framer-motion';
 import { useState } from 'react';
-import Sidebar from '../components/Sidebar';
 import OtherServicesHeader from '../components/OtherServicesHeader';
 import OtherServicesStats from '../components/OtherServicesStats';
 import OtherServicesSearchFilter from '../components/OtherServicesSearchFilter';
@@ -145,31 +144,27 @@ const OtherServices = () => {
   };
 
   return (
-    <div className="flex h-screen bg-gray-50">
-      <Sidebar />
+    <motion.div 
+      className="p-4 sm:p-6 space-y-4 sm:space-y-6"
+      variants={containerVariants}
+      initial="hidden"
+      animate="visible"
+    >
+      <OtherServicesHeader onAddClick={() => setShowAddModal(true)} />
       
-      <motion.div 
-        className="flex-1 overflow-auto p-6"
-        variants={containerVariants}
-        initial="hidden"
-        animate="visible"
-      >
-        <OtherServicesHeader onAddClick={() => setShowAddModal(true)} />
-        
-        <OtherServicesStats services={services} />
-        
-        <OtherServicesSearchFilter 
-          searchTerm={searchTerm}
-          setSearchTerm={setSearchTerm}
-          filterCategory={filterCategory}
-          setFilterCategory={setFilterCategory}
-          filterStatus={filterStatus}
-          setFilterStatus={setFilterStatus}
-        />
-        
-        <OtherServicesGrid filteredServices={filteredServices} />
-      </motion.div>
-    </div>
+      <OtherServicesStats services={services} />
+      
+      <OtherServicesSearchFilter 
+        searchTerm={searchTerm}
+        setSearchTerm={setSearchTerm}
+        filterCategory={filterCategory}
+        setFilterCategory={setFilterCategory}
+        filterStatus={filterStatus}
+        setFilterStatus={setFilterStatus}
+      />
+      
+      <OtherServicesGrid filteredServices={filteredServices} />
+    </motion.div>
   );
 };
 

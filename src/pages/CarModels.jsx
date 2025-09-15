@@ -1,7 +1,6 @@
 import { motion } from 'framer-motion';
 import { useState } from 'react';
 import { TruckIcon } from '@heroicons/react/24/outline';
-import Sidebar from '../components/Sidebar';
 import CarModelsHeader from '../components/CarModelsHeader';
 import CarModelsStats from '../components/CarModelsStats';
 import CarModelsSearchFilter from '../components/CarModelsSearchFilter';
@@ -163,15 +162,12 @@ const CarModels = () => {
   };
 
   return (
-    <div className="flex h-screen bg-gray-50">
-      <Sidebar />
-
-      <motion.div
-        className="flex-1 overflow-auto p-6"
-        variants={containerVariants}
-        initial="hidden"
-        animate="visible"
-      >
+    <motion.div
+      className="p-4 sm:p-6 w-full"
+      variants={containerVariants}
+      initial="hidden"
+      animate="visible"
+    >
         <CarModelsHeader
           viewMode={viewMode}
           setViewMode={setViewMode}
@@ -257,8 +253,7 @@ const CarModels = () => {
             <p className="text-gray-500">Try adjusting your search or filter criteria</p>
           </motion.div>
         )}
-      </motion.div>
-    </div>
+    </motion.div>
   );
 };
 
