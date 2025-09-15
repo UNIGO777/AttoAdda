@@ -14,4 +14,10 @@ export default defineConfig({
     sourcemap: false,
   },
   base: './',
+  server: {
+    historyApiFallback: true,
+  },
+  preview: {
+    historyApiFallback: true,
+  },
 })
